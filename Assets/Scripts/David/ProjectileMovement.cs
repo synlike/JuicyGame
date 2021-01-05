@@ -19,6 +19,7 @@ public class ProjectileMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Handle the destroying
+        other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
+        Destroy(gameObject);
     }
 }
