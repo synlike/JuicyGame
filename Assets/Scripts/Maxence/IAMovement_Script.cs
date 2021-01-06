@@ -38,8 +38,11 @@ public class IAMovement_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckPosEnnemy();
-        ShootEnnemy();
+        if(GameManager.instance.playerLife > 0)
+        {
+            CheckPosEnnemy();
+            ShootEnnemy();
+        }
     }
 
     void AddListGameObject()
@@ -87,9 +90,9 @@ public class IAMovement_Script : MonoBehaviour
                 transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("goDown").OnPlay(() => DOTween.Pause("goMove")).OnComplete(() => { DOTween.Play("goMove"); DOTween.Kill("goDown"); });
             }
 
-            if (pos.y < 0.05f) //Bas de la caméra atteint
+            if (pos.y < 0.2f) //Bas de la caméra atteint
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                StartCoroutine(GameManager.instance.GameOver());
             }
         }
     }

@@ -23,13 +23,14 @@ public class Ennemy_Script : MonoBehaviour
 
     public void DestroyEnnemy()
     {
-        IAMovement_Script.instance.FirstLineEnnemy.Add(transform.parent.GetChild(transform.parent.childCount - 2).gameObject);
-
         IAMovement_Script.instance.FirstLineEnnemy.Remove(gameObject);
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
 
-        screenShake.ShakeCamera(0.1f);
-
         Destroy(gameObject);
+
+        if (transform.parent.childCount > 1) IAMovement_Script.instance.FirstLineEnnemy.Add(transform.parent.GetChild(transform.parent.childCount - 2).gameObject);
+        else if (transform.parent.childCount == 1) IAMovement_Script.instance.FirstLineEnnemy.Add(transform.parent.GetChild(transform.parent.childCount - 1).gameObject);
+
+        screenShake.ShakeCamera(0.1f);
     }
 }

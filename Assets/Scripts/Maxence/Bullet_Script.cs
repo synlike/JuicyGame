@@ -23,8 +23,11 @@ public class Bullet_Script : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Destroy(other.gameObject);
-            Debug.Log("Une vie en moins");
+            GameManager.instance.playerLife--;
+            PlayerPrefs.SetInt("Player Life", GameManager.instance.playerLife);
+
+            GameManager.instance.lifeText.text = "LIFE : " + GameManager.instance.playerLife;
+
             Destroy(gameObject);
         }
     }
