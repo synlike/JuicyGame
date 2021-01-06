@@ -29,7 +29,9 @@ public class PlayerWeapon : MonoBehaviour
         {
             if(canShoot)
             {
-                if(shootCount <= shootsBeforeSpecial)
+                HandleKnockback();
+
+                if (shootCount <= shootsBeforeSpecial)
                 {
                     GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity);
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
@@ -46,6 +48,12 @@ public class PlayerWeapon : MonoBehaviour
                 canShoot = false;
             }
         }
+    }
+
+    private void HandleKnockback()
+    {
+        Debug.Log("KnockBack");
+        GetComponent<Rigidbody>().AddForce(-transform.up * -1, ForceMode.Impulse);
     }
 
     public void ResetShootCount()

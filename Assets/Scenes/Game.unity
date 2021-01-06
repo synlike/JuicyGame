@@ -335,16 +335,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4307054552083461614, guid: 1970d2f1d1bf25f43abddac98c4a56e8,
-        type: 3}
-      propertyPath: projectileSpecial
-      value: 
-      objectReference: {fileID: 4389864659514724211, guid: 823b8f386ec199c4db0a8842d15917d0,
-        type: 3}
     - target: {fileID: 5059941152767306623, guid: 1970d2f1d1bf25f43abddac98c4a56e8,
         type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089501217511034166, guid: 1970d2f1d1bf25f43abddac98c4a56e8,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089501217511034166, guid: 1970d2f1d1bf25f43abddac98c4a56e8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7589621291801272250, guid: 1970d2f1d1bf25f43abddac98c4a56e8,
         type: 3}
