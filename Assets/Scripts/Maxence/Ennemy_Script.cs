@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Ennemy_Script : MonoBehaviour
 {
+    private ScreenShake screenShake;
+
+    void Start()
+    {
+        screenShake = GameObject.Find("ScreenShake").GetComponent<ScreenShake>();
+    }
+
     public void Shoot()
     {
         if (transform.GetSiblingIndex() + 1 == transform.parent.childCount)
@@ -20,6 +27,8 @@ public class Ennemy_Script : MonoBehaviour
 
         IAMovement_Script.instance.FirstLineEnnemy.Remove(gameObject);
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
+
+        screenShake.ShakeCamera(0.1f);
 
         Destroy(gameObject);
     }
