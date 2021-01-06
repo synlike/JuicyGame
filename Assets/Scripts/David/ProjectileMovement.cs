@@ -6,12 +6,7 @@ public class ProjectileMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed = 5f;
-
-    void Start()
-    {
-        Destroy(gameObject, 5f);
-    }
-
+    
     void Update()
     {
         transform.position += transform.up * Time.deltaTime * speed;
@@ -19,7 +14,18 @@ public class ProjectileMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
+        Debug.Log(other.gameObject.tag);
+
+        if(other.CompareTag("Ennemy"))
+        {
+            Debug.Log("Walah");
+            other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
+        }
+
+        if (other.CompareTag("Sky"))
+        {
+            Debug.Log("Wesh");
+        }
         Destroy(gameObject);
     }
 }

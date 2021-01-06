@@ -16,6 +16,9 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     private float shootRate = 2; // 2 per seconds
 
+    private int shootCount = 0;
+    [SerializeField]
+    private int shootBeforeSpecial = 5;
     private bool canShoot = true;
     private float shootTimer = 0f;
     
@@ -26,7 +29,17 @@ public class PlayerWeapon : MonoBehaviour
         {
             if(canShoot)
             {
-                GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity);
+                if(shootCount <= 5)
+                {
+                    GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity);
+                    shootCount++;
+                }
+                else
+                {
+                    // Tir Spécial
+                    Debug.Log("Tir Spécial");
+                    shootCount = 0;
+                }
                 canShoot = false;
             }
         }
@@ -34,7 +47,6 @@ public class PlayerWeapon : MonoBehaviour
         if(!canShoot)
         {
             shootTimer += Time.deltaTime;
-            Debug.Log(shootTimer);
             if (shootTimer >= (1 / shootRate))
             {
                 canShoot = true;

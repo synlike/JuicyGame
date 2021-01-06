@@ -16,21 +16,11 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        Vector2 movement = Vector2.zero;
+        float input = Input.GetAxis("Horizontal");
 
-        if(Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+        if(input != 0)
         {
-            movement.x = (transform.right * Time.deltaTime * -speed).x;
+            transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
         }
-        
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            movement.x = (transform.right * Time.deltaTime * speed).x;
-        }
-
-        movement = movement + (Vector2)transform.position;
-
-        rb.MovePosition(movement);
-
     }
 }
