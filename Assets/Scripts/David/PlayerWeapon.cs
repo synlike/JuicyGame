@@ -22,6 +22,13 @@ public class PlayerWeapon : MonoBehaviour
 
     private int shootCount = 0;
 
+    private Vector3 endPosition;
+
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -29,7 +36,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             if(canShoot)
             {
-                HandleKnockback();
+                StartCoroutine(HandleKnockback(0.1f));
 
                 if (shootCount <= shootsBeforeSpecial)
                 {
@@ -50,14 +57,39 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-    private void HandleKnockback()
-    {
-        Debug.Log("KnockBack");
-        GetComponent<Rigidbody>().AddForce(-transform.up * -1, ForceMode.Impulse);
-    }
-
     public void ResetShootCount()
     {
         shootCount = 0;
+    }
+
+    private IEnumerator HandleKnockback(float duration)
+    {
+        float time = 0;
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, targetPos, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPos;
+        StartCoroutine(ReverseKnockback(duration));
+    }
+
+    private IEnumerator ReverseKnockback(float duration)
+    {
+        float time = 0;
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, targetPos, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPos;
     }
 }
