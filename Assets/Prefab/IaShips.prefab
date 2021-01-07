@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1043050830}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,6 +376,8 @@ MonoBehaviour:
     type: 3}
   canShoot: 0
   timeNextShoot: 0
+  activateExplosion: 0
+  activateAttractor: 0
 --- !u!1 &2521525997642658514
 GameObject:
   m_ObjectHideFlags: 0
