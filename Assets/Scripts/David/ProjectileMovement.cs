@@ -34,6 +34,7 @@ public class ProjectileMovement : MonoBehaviour
         if(other.CompareTag("Ennemy"))
         {
             hitCount++;
+            playerWeapon.IncreaseOrb();
             Debug.Log("Hitcount : " + hitCount + " | " + hitToDestroy);
             other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
             if(hitCount == hitToDestroy)
@@ -46,6 +47,7 @@ public class ProjectileMovement : MonoBehaviour
         {
             audioM.Play("DontTouchEnemies");
             playerWeapon.ResetShootCount();
+            playerWeapon.ResetOrb();
             DestroySelf();
         }
     }
