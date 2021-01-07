@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Shockwave_01
+  m_Name: M_Star_01
   m_Shader: {fileID: -6465566751694194690, guid: 399bb82dfc40f084c8ccdc3cf9a72c45,
     type: 3}
   m_ShaderKeywords: 
