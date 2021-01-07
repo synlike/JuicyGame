@@ -11,12 +11,6 @@ public class Bullet_Script : MonoBehaviour
     void Update()
     {
         transform.position -= transform.up * Time.deltaTime * speed;
-
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        if (pos.y < 0.0) //Bas de la caméra atteint
-        {
-            Destroy(gameObject); //Detruit la balle si elle touche le bas de l'écran
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +22,11 @@ public class Bullet_Script : MonoBehaviour
 
             GameManager.instance.lifeText.text = "LIFE : " + GameManager.instance.playerLife;
 
+            Destroy(gameObject);
+        }
+
+        if(other.CompareTag("Bottom"))
+        {
             Destroy(gameObject);
         }
     }
