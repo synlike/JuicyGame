@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    private AudioManager audioM;
+
+    private bool endJingle;
+
     private void Awake()
     {
         if (instance == null)
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         winText.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(false);
     }
@@ -47,6 +51,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Win()
     {
+        if(!endJingle)
+        {
+            audioM.Play("Win");
+            endJingle = true;
+        }
+
         winText.gameObject.SetActive(true);
         DOTween.KillAll();
         yield return new WaitForSeconds(3);
@@ -55,6 +65,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        if (!endJingle)
+        {
+            audioM.Play("Lose");
+            endJingle = true;
+        }
+
         gameOverText.gameObject.SetActive(true);
         PlayerPrefs.DeleteKey("Player Life");
         DOTween.KillAll();
