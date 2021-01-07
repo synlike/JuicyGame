@@ -80,12 +80,14 @@ public class IAMovement_Script : MonoBehaviour
 
             if (pos.x < 0.05f) //Côté gauche de la caméra atteint
             {
+                GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Alarm");
                 transform.DOMoveX(5, 20f).SetId("goMove");
                 transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("goDown").OnPlay(() => DOTween.Pause("goMove")).OnComplete(() => { DOTween.Play("goMove"); DOTween.Kill("goDown"); });
             }
 
             if (0.95f < pos.x) //Côté droit de la caméra atteint
             {
+                GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Alarm");
                 transform.DOMoveX(-5, 20f).SetId("goMove");
                 transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("goDown").OnPlay(() => DOTween.Pause("goMove")).OnComplete(() => { DOTween.Play("goMove"); DOTween.Kill("goDown"); });
             }

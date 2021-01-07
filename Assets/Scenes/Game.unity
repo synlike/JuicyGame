@@ -860,10 +860,10 @@ MonoBehaviour:
     loop: 1
     CouldCrossfade: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Alarm
+    clip: {fileID: 8300000, guid: 46d27d70e7aaa7845b1349c859c770d2, type: 3}
+    volume: 0.2
+    pitch: 1
     loop: 0
     CouldCrossfade: 0
     source: {fileID: 0}
