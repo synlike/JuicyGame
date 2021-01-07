@@ -15,7 +15,7 @@ public class Ennemy_Script : MonoBehaviour
     {
         if (transform.GetSiblingIndex() + 1 == transform.parent.childCount)
         {
-            Instantiate(IAMovement_Script.instance.prefabShoot, gameObject.transform);
+            Instantiate(IAMovement_Script.instance.prefabShoot, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
         }
 
         IAMovement_Script.instance.timeNextShoot = 3.0f;
