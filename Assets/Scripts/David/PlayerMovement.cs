@@ -13,12 +13,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    
+
     void FixedUpdate()
     {
         float input = Input.GetAxis("Horizontal");
 
-        if(input != 0)
+        if (input != 0)
         {
             transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
         }

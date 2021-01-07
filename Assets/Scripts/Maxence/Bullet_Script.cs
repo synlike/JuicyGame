@@ -18,12 +18,6 @@ public class Bullet_Script : MonoBehaviour
     void Update()
     {
         transform.position -= transform.up * Time.deltaTime * speed;
-
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        if (pos.y < 0.0) //Bas de la caméra atteint
-        {
-            Destroy(gameObject); //Detruit la balle si elle touche le bas de l'écran
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +38,11 @@ public class Bullet_Script : MonoBehaviour
                 audioM.Play("Ally_Boom");
             }
 
+            Destroy(gameObject);
+        }
+
+        if(other.CompareTag("Bottom"))
+        {
             Destroy(gameObject);
         }
     }
