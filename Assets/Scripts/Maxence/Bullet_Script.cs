@@ -24,7 +24,6 @@ public class Bullet_Script : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.playerLife--;
             PlayerPrefs.SetInt("Player Life", GameManager.instance.playerLife);
 
             GameManager.instance.RemoveLife();

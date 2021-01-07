@@ -9,6 +9,7 @@ TagManager:
   - Sky
   - Special
   - Bottom
+  - Light
   layers:
   - Default
   - TransparentFX

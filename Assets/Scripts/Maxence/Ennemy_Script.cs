@@ -35,7 +35,7 @@ public class Ennemy_Script : MonoBehaviour
             Instantiate(IAMovement_Script.instance.prefabShoot, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
         }
 
-        IAMovement_Script.instance.timeNextShoot = 3.0f;
+        IAMovement_Script.instance.timeNextShoot = 1.0f;
     }
 
     public void DestroyEnnemy()

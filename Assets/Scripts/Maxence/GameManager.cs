@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
     public GameObject health;
     private Image[] healthImages;
 
+    [SerializeField]
+    private Image WinScreen;
+    [SerializeField]
+    private Image LoseScreen;
+    [SerializeField]
+    private Image BackgroundScreen;
+
     private void Awake()
     {
         if (instance == null)
@@ -61,6 +68,10 @@ public class GameManager : MonoBehaviour
         }
         
         DOTween.KillAll();
+
+        WinScreen.enabled = true;
+        BackgroundScreen.enabled = true;
+
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -75,6 +86,10 @@ public class GameManager : MonoBehaviour
         
         PlayerPrefs.DeleteKey("Player Life");
         DOTween.KillAll();
+
+        LoseScreen.enabled = true;
+        BackgroundScreen.enabled = true;
+
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
