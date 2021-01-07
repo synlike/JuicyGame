@@ -10,6 +10,7 @@ public class EffectActivator : MonoBehaviour
     public PlayerWeapon playerWeaponScript;
     public ShipTilt shipTilt;
     public VisualEffect orb;
+    public IAMovement_Script IAMovementScript;
 
     void Update()
     {
@@ -57,6 +58,18 @@ public class EffectActivator : MonoBehaviour
                 orb.enabled = true;
                 Debug.Log("Orb Deactivated");
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            IAMovementScript.activateExplosion = !IAMovementScript.activateExplosion;
+            Debug.Log("Activate Enemy Explosion = " + IAMovementScript.activateExplosion);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            IAMovementScript.activateAttractor = !IAMovementScript.activateAttractor;
+            Debug.Log("Activate Particle Attractor = " + IAMovementScript.activateAttractor);
         }
     }
 }

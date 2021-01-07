@@ -20,6 +20,11 @@ public class IAMovement_Script : MonoBehaviour
     public bool canShoot;
     public float timeNextShoot;
 
+    [HideInInspector]
+    public bool activateExplosion;
+    [HideInInspector]
+    public bool activateAttractor;
+
     private void Awake()
     {
         if (instance == null)
