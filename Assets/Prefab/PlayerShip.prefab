@@ -5271,7 +5271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 245460756150630852, guid: b55393a94aa739c44818d1af31df9a37,
     type: 3}
-  projectileSpecial: {fileID: 4389864659514724211, guid: 823b8f386ec199c4db0a8842d15917d0,
+  projectileSpecial: {fileID: 8370037820449889553, guid: 73caa4256cf553845b456e3df0d9d733,
     type: 3}
   orb: {fileID: 774179530795296253}
   shootOrigin: {fileID: 3680776647817907065}
