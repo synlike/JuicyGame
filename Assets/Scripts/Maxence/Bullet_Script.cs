@@ -7,6 +7,13 @@ public class Bullet_Script : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
 
+    private AudioManager audioM;
+
+    public void Start()
+    {
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +34,15 @@ public class Bullet_Script : MonoBehaviour
             PlayerPrefs.SetInt("Player Life", GameManager.instance.playerLife);
 
             GameManager.instance.lifeText.text = "LIFE : " + GameManager.instance.playerLife;
+
+            if(GameObject.Find("GameManager").GetComponent<GameManager>().playerLife != 0)
+            {
+                audioM.Play("Ally_Hit");
+            }
+            else
+            {
+                audioM.Play("Ally_Boom");
+            }
 
             Destroy(gameObject);
         }

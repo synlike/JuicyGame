@@ -18,7 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     private int shootsBeforeSpecial = 5;
     [HideInInspector]
-    public bool canShoot = true;
+    public bool canShoot = true, soundreleased = false;
 
     private int shootCount = 0;
 
@@ -26,14 +26,27 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool activateRecoil = false;
 
+    private AudioManager audioM;
+
+    private audioClipRandom audioRandom;
+
+    private AudioSource audioS;
 
     void Start()
     {
-
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioS = GameObject.Find("AudioSourceAllyShots").GetComponent<AudioSource>();
+        audioRandom = GameObject.Find("AudioManager").GetComponent<audioClipRandom>();
     }
 
     void Update()
     {
+        if(shootCount == shootsBeforeSpecial && !soundreleased)
+        {
+            audioM.Play("BeforeMegaShoot");
+            soundreleased = true;
+        }
+
         if(Input.GetKey(KeyCode.Space))
         {
             if(canShoot)
@@ -45,6 +58,10 @@ public class PlayerWeapon : MonoBehaviour
 
                 if (shootCount <= shootsBeforeSpecial)
                 {
+                    //Tir normal
+                    audioS.clip = audioRandom.listAllyShots[Random.Range(0, audioRandom.listAllyShots.Length)];
+                    audioS.Play();
+
                     GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity) as GameObject;
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
                     shootCount++;
@@ -54,7 +71,8 @@ public class PlayerWeapon : MonoBehaviour
                     // Tir Spécial
                     GameObject projectileInstance = Instantiate(projectileSpecial, shootOrigin.position, Quaternion.identity);
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
-                    
+                    audioM.Play("MegaShoot");
+                    soundreleased = false;
                     shootCount = 0;
                 }
                 canShoot = false;

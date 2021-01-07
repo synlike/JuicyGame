@@ -16,8 +16,19 @@ public class AudioManager : MonoBehaviour
     public string musicPlayingName;
     public float musicVolume;
 
+    private bool passTheme2, passTheme1;
+
+    private AudioSource audioSTheme;
+
+    private float time;
+
+    public AudioClip Theme2, Theme1;
+
     private void Awake()
     {
+        passTheme1 = false;
+        passTheme2 = false;
+        audioSTheme = GameObject.Find("AudioSourceTheme").GetComponent<AudioSource>();
 
         if (instance == null)
             instance = this;
@@ -43,11 +54,36 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        Play("Theme");
+        Play("Theme3");
     }
 
     private void Update()
     {
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().playerLife == 2 && !passTheme2)
+        {
+            audioSTheme.Stop();
+            time = audioSTheme.time;
+            audioSTheme.clip = Theme2;
+            audioSTheme.Play();
+            audioSTheme.time = time;
+            passTheme2 = true;
+        }
+
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().playerLife == 1 && !passTheme1)
+        {
+            audioSTheme.Stop();
+            time = audioSTheme.time;
+            audioSTheme.clip = Theme1;
+            audioSTheme.Play();
+            audioSTheme.time = time;
+            passTheme1 = true;
+        }
+
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().playerLife == 0)
+        {
+            audioSTheme.Stop();
+        }
+
         SceneNumber = SceneManager.GetActiveScene().buildIndex;
     }
 
