@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using DG.Tweening;
 
 public class GameManager : MonoBehaviour
@@ -15,8 +16,15 @@ public class GameManager : MonoBehaviour
 
     private bool endJingle;
 
+    private bool gameover;
+
     public GameObject health;
     private Image[] healthImages;
+
+    [SerializeField]
+    private GameObject Player;
+    [SerializeField]
+    private GameObject Explosion;
 
     [SerializeField]
     private Image WinScreen;
@@ -78,6 +86,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        if(!gameover)
+        {
+            Instantiate(Explosion, Player.transform.position, Quaternion.identity);
+            Player.GetComponentInChildren<MeshRenderer>().enabled = false;
+            Player.GetComponentInChildren<VisualEffect>().enabled = false;
+            gameover = true;
+        }
+
         if (!endJingle)
         {
             audioM.Play("Lose");

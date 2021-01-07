@@ -511,6 +511,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 401142740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &289006906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268441994262961032, guid: e433b635d2c02094f943e23a653fad83,
+    type: 3}
+  m_PrefabInstance: {fileID: 221498242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &295986433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2521525999030375079, guid: 28f74361fc6ed8448b3eb673ee8ccea9,
@@ -1260,6 +1266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLife: 0
   health: {fileID: 1133771070}
+  Player: {fileID: 289006906}
+  Explosion: {fileID: 2233475362838460192, guid: 52a76fa0b5d77cf48951503753c7f305,
+    type: 3}
   WinScreen: {fileID: 1337384962}
   LoseScreen: {fileID: 2139124291}
   BackgroundScreen: {fileID: 1596209498}
@@ -1556,7 +1565,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 221498242}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 289006906}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df5f1ea61d259c41b3f77ef8b653606, type: 3}
