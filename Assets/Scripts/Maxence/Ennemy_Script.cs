@@ -30,7 +30,7 @@ public class Ennemy_Script : MonoBehaviour
 
         if (transform.parent.childCount > 1) IAMovement_Script.instance.FirstLineEnnemy.Add(transform.parent.GetChild(transform.parent.childCount - 2).gameObject);
         else if (transform.parent.childCount == 1) IAMovement_Script.instance.FirstLineEnnemy.Add(transform.parent.GetChild(transform.parent.childCount - 1).gameObject);
-
+        
         screenShake.ShakeCamera(0.1f);
     }
 }

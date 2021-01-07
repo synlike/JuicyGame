@@ -67,7 +67,10 @@ public class IAMovement_Script : MonoBehaviour
         if (timeNextShoot <= 0.0f) 
         {
             int value = Random.Range(0, FirstLineEnnemy.Count);
-            FirstLineEnnemy[value].GetComponent<Ennemy_Script>().Shoot();
+            if(FirstLineEnnemy[value] != null)
+            {
+                FirstLineEnnemy[value].GetComponent<Ennemy_Script>().Shoot();
+            }
         }
         else timeNextShoot -= Time.deltaTime;
     }
