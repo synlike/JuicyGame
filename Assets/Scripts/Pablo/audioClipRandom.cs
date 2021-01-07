@@ -6,6 +6,7 @@ public class audioClipRandom : MonoBehaviour
 {
     public AudioClip[] listSoundsEnemyDead;
 
+    public AudioClip[] listAllyShots;
 
     // Start is called before the first frame update
     void Start()

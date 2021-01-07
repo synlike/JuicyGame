@@ -16,8 +16,20 @@ public class AudioManager : MonoBehaviour
     public string musicPlayingName;
     public float musicVolume;
 
+    private bool passTheme2, passTheme1;
+
+    private AudioSource audioSTheme;
+
+    public AudioClip Theme1, Theme2, Theme3;
+
+    private float time;
+
     private void Awake()
     {
+        passTheme1 = false;
+        passTheme2 = false;
+
+        audioSTheme = GameObject.Find("AudioSourceTheme").GetComponent<AudioSource>();
 
         if (instance == null)
             instance = this;
@@ -43,12 +55,30 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        Play("Theme");
+        Play("Theme3");
     }
 
     private void Update()
     {
         SceneNumber = SceneManager.GetActiveScene().buildIndex;
+
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().playerLife == 2 && !passTheme2)
+        {
+            Debug.Log("aled");
+            time = audioSTheme.time;
+            audioSTheme.clip = Theme2;
+            audioSTheme.Play();
+            audioSTheme.time = time;
+            passTheme2 = true;
+        }
+        else if (GameObject.Find("GameManager").GetComponent<GameManager>().playerLife == 1 && !passTheme1)
+        {
+            time = audioSTheme.time;
+            audioSTheme.clip = Theme3;
+            audioSTheme.Play();
+            audioSTheme.time = time;
+            passTheme1 = true;
+        }
     }
 
     public void Play(string name)
@@ -63,11 +93,6 @@ public class AudioManager : MonoBehaviour
 
         if(s.CouldCrossfade)
             musicPlayingName = name;
-    }
-
-    public void PlayRandomlyEnemyDead(string name)
-    {
-
     }
 
     public IEnumerator FadeOut(string name)

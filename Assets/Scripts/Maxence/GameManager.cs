@@ -14,8 +14,15 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    private AudioManager audioM;
+
+    private bool endJingle;
+
     private void Awake()
     {
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        endJingle = false;
+
         if (instance == null)
         {
             instance = this;
@@ -47,6 +54,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Win()
     {
+        if(!endJingle)
+        {
+            audioM.Play("Win");
+            endJingle = true;
+        }
+
         winText.gameObject.SetActive(true);
         DOTween.KillAll();
         yield return new WaitForSeconds(3);
@@ -55,6 +68,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        if (!endJingle)
+        {
+            audioM.Play("Lose");
+            endJingle = true;
+        }
+
         gameOverText.gameObject.SetActive(true);
         PlayerPrefs.DeleteKey("Player Life");
         DOTween.KillAll();

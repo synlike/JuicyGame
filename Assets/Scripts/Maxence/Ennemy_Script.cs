@@ -25,6 +25,8 @@ public class Ennemy_Script : MonoBehaviour
 
     public void Shoot()
     {
+        audioM.Play("Enemy_Shot");
+
         if (transform.GetSiblingIndex() + 1 == transform.parent.childCount)
         {
             Instantiate(IAMovement_Script.instance.prefabShoot, gameObject.transform);

@@ -12,12 +12,16 @@ public class ProjectileMovement : MonoBehaviour
     private int hitToDestroy = 1;
     private int hitCount = 0;
 
+    private AudioManager audioM;
+
     private void Start()
     {
         if(gameObject.CompareTag("Special"))
         {
             hitToDestroy = 2;
         }
+
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -40,8 +44,10 @@ public class ProjectileMovement : MonoBehaviour
 
         if (other.CompareTag("Sky"))
         {
+            audioM.Play("DontTouchEnemies");
             playerWeapon.ResetShootCount();
             DestroySelf();
+
         }
     }
 
