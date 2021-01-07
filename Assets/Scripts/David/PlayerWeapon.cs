@@ -80,6 +80,8 @@ public class PlayerWeapon : MonoBehaviour
                     audioM.Play("MegaShoot");
                     soundreleased = false;
                     shootCount = 0;
+
+                    ResetOrb();
                 }
                 canShoot = false;
             }

@@ -34,7 +34,10 @@ public class ProjectileMovement : MonoBehaviour
         if(other.CompareTag("Ennemy"))
         {
             hitCount++;
-            playerWeapon.IncreaseOrb();
+            if(gameObject.tag != "Special")
+            {
+                playerWeapon.IncreaseOrb();
+            }
             Debug.Log("Hitcount : " + hitCount + " | " + hitToDestroy);
             other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
             if(hitCount == hitToDestroy)
