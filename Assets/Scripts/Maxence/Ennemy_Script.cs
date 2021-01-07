@@ -14,6 +14,8 @@ public class Ennemy_Script : MonoBehaviour
 
     [SerializeField]
     private GameObject explosion;
+    [SerializeField]
+    private GameObject particleAttractor;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class Ennemy_Script : MonoBehaviour
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
 
         Instantiate(explosion, transform.position, Quaternion.identity);
+        Instantiate(particleAttractor, new Vector3(transform.position.x - 0.8f, transform.position.y + 2f, transform.position.z), Quaternion.identity);
 
         Destroy(gameObject);
 

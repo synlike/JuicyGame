@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4464049261291580}
   - component: {fileID: 199837574313460674}
   - component: {fileID: 198096990248493050}
+  - component: {fileID: 734003216307093883}
   m_Layer: 0
   m_Name: Particle attractor 004 soft noise
   m_TagString: Untagged
@@ -4756,6 +4757,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &734003216307093883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381578670569680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d246d6ad6be9d408b3fdda65b5dff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
 --- !u!1 &1604261558871150
 GameObject:
   m_ObjectHideFlags: 0
@@ -9424,7 +9438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d41c288e575eb84aac00fc3b880a5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 3
 --- !u!1 &1799754637623024
 GameObject:

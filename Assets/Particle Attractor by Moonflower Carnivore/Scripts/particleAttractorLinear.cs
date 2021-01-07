@@ -4,7 +4,7 @@ using UnityEngine;
 public class particleAttractorLinear : MonoBehaviour {
 	ParticleSystem ps;
 	ParticleSystem.Particle[] m_Particles;
-	public Transform target;
+	private Transform target;
 	public float speed = 5f;
 	int numParticlesAlive;
 	void Start () {
@@ -12,6 +12,8 @@ public class particleAttractorLinear : MonoBehaviour {
 		if (!GetComponent<Transform>()){
 			GetComponent<Transform>();
 		}
+
+        target = GameObject.Find("PlayerShip").transform;
 	}
 	void Update () {
 		m_Particles = new ParticleSystem.Particle[ps.main.maxParticles];
