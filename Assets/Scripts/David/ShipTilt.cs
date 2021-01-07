@@ -9,9 +9,15 @@ public class ShipTilt : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 5f;
 
+    [HideInInspector]
+    public bool tiltActivated;
+
     void Update()
     {
-        EulerRotate();
+        if(tiltActivated)
+        {
+            EulerRotate();
+        }
     }
 
     void EulerRotate()

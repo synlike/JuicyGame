@@ -48,8 +48,17 @@ public class Ennemy_Script : MonoBehaviour
         IAMovement_Script.instance.FirstLineEnnemy.Remove(gameObject);
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
 
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        Instantiate(particleAttractor, new Vector3(transform.position.x - 0.8f, transform.position.y + 2f, transform.position.z), Quaternion.identity);
+        IAMovement_Script IAScript = gameObject.transform.parent.GetComponentInParent<IAMovement_Script>();
+
+        if (IAScript.activateExplosion)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        }
+
+        if(IAScript.activateAttractor)
+        {
+            Instantiate(particleAttractor, new Vector3(transform.position.x - 0.8f, transform.position.y + 2f, transform.position.z), Quaternion.identity);
+        }
 
         Destroy(gameObject);
 
