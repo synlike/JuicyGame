@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _Brightness: 0.7
     - _CLAMPOUT: 0
-    - _CamScroll: -50
+    - _CamScroll: 0
     - _Darkmatter: 221.4
     - _Distfading: -20
     - _Formuparam: 444
@@ -46,4 +46,4 @@ Material:
     - _Center: {r: 1.15, g: 1, b: -0.02, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Rotation: {r: 0, g: 0, b: 0, a: 1}
-    - _Scroll: {r: 3, g: 5, b: 0.1, a: 0.1}
+    - _Scroll: {r: 0.5, g: 0.5, b: 0.1, a: 0.1}
