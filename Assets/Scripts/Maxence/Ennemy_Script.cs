@@ -6,9 +6,21 @@ public class Ennemy_Script : MonoBehaviour
 {
     private ScreenShake screenShake;
 
+    public AudioManager audioM;
+
+    private audioClipRandom audioRandom;
+
+    private AudioSource audioS;
+
     void Start()
     {
         screenShake = GameObject.Find("ScreenShake").GetComponent<ScreenShake>();
+
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        audioS = GameObject.Find("AudioSourceEnemyDead").GetComponent<AudioSource>();
+
+        audioRandom = GameObject.Find("AudioManager").GetComponent<audioClipRandom>();
     }
 
     public void Shoot()
@@ -23,6 +35,11 @@ public class Ennemy_Script : MonoBehaviour
 
     public void DestroyEnnemy()
     {
+        audioM.Play("EnemyBoom");
+
+        audioS.clip = audioRandom.listSoundsEnemyDead[Random.Range(0, audioRandom.listSoundsEnemyDead.Length)];
+        audioS.Play();
+
         IAMovement_Script.instance.FirstLineEnnemy.Remove(gameObject);
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
 

@@ -65,6 +65,11 @@ public class AudioManager : MonoBehaviour
             musicPlayingName = name;
     }
 
+    public void PlayRandomlyEnemyDead(string name)
+    {
+
+    }
+
     public IEnumerator FadeOut(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
