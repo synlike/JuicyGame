@@ -27,7 +27,7 @@ public class Bullet_Script : MonoBehaviour
             GameManager.instance.playerLife--;
             PlayerPrefs.SetInt("Player Life", GameManager.instance.playerLife);
 
-            GameManager.instance.lifeText.text = "LIFE : " + GameManager.instance.playerLife;
+            GameManager.instance.RemoveLife();
 
             if(GameObject.Find("GameManager").GetComponent<GameManager>().playerLife != 0)
             {

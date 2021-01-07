@@ -8,15 +8,15 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public int playerLife;
-    [SerializeField] private Text winText;
-    [SerializeField] private Text gameOverText;
-    public Text lifeText;
 
     public static GameManager instance;
 
     private AudioManager audioM;
 
     private bool endJingle;
+
+    public GameObject health;
+    private Image[] healthImages;
 
     private void Awake()
     {
@@ -30,16 +30,13 @@ public class GameManager : MonoBehaviour
         }
 
         playerLife = PlayerPrefs.GetInt("Player Life", 3);
-
-        lifeText.text = "LIFE : " + playerLife;
+        healthImages = health.GetComponentsInChildren<Image>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        winText.gameObject.SetActive(false);
-        gameOverText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -49,6 +46,12 @@ public class GameManager : MonoBehaviour
         if (IAMovement_Script.instance.IaEnnemy.Count <= 0) StartCoroutine(Win());
     }
 
+    public void RemoveLife()
+    {
+        playerLife--;
+        healthImages[playerLife].enabled = false;
+    }
+
     IEnumerator Win()
     {
         if(!endJingle)
@@ -56,8 +59,7 @@ public class GameManager : MonoBehaviour
             audioM.Play("Win");
             endJingle = true;
         }
-
-        winText.gameObject.SetActive(true);
+        
         DOTween.KillAll();
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -70,8 +72,7 @@ public class GameManager : MonoBehaviour
             audioM.Play("Lose");
             endJingle = true;
         }
-
-        gameOverText.gameObject.SetActive(true);
+        
         PlayerPrefs.DeleteKey("Player Life");
         DOTween.KillAll();
         yield return new WaitForSeconds(3);
