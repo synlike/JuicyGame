@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5012,7 +5012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df5f1ea61d259c41b3f77ef8b653606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 2089719181819349703, guid: 2feae4610c401e747b69e2b19896ffc3,
+  projectile: {fileID: 245460756150630852, guid: b55393a94aa739c44818d1af31df9a37,
     type: 3}
   projectileSpecial: {fileID: 4389864659514724211, guid: 823b8f386ec199c4db0a8842d15917d0,
     type: 3}
@@ -5020,3 +5020,4 @@ MonoBehaviour:
   speed: 5
   shootsBeforeSpecial: 5
   canShoot: 1
+  activateRecoil: 0

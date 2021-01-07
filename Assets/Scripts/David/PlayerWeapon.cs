@@ -24,6 +24,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private Vector3 endPosition;
 
+    public bool activateRecoil = false;
+
 
     void Start()
     {
@@ -36,7 +38,10 @@ public class PlayerWeapon : MonoBehaviour
         {
             if(canShoot)
             {
-                StartCoroutine(HandleKnockback(0.1f));
+                if(activateRecoil)
+                {
+                    StartCoroutine(HandleKnockback(0.1f));
+                }
 
                 if (shootCount <= shootsBeforeSpecial)
                 {
