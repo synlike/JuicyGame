@@ -27,11 +27,10 @@ public class ProjectileMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        hitCount++;
-
         if(other.CompareTag("Ennemy"))
         {
+            hitCount++;
+            Debug.Log("Hitcount : " + hitCount + " | " + hitToDestroy);
             other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
             if(hitCount == hitToDestroy)
             {
