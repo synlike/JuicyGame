@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerWeapon : MonoBehaviour
     GameObject projectile;
     [SerializeField]
     GameObject projectileSpecial;
+
+    [SerializeField]
+    private VisualEffect orb;
 
     [SerializeField]
     Transform shootOrigin;
@@ -37,6 +41,8 @@ public class PlayerWeapon : MonoBehaviour
         audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         audioS = GameObject.Find("AudioSourceAllyShots").GetComponent<AudioSource>();
         audioRandom = GameObject.Find("AudioManager").GetComponent<audioClipRandom>();
+
+        orb.SetFloat("Size", 0);
     }
 
     void Update()
@@ -74,6 +80,8 @@ public class PlayerWeapon : MonoBehaviour
                     audioM.Play("MegaShoot");
                     soundreleased = false;
                     shootCount = 0;
+
+                    ResetOrb();
                 }
                 canShoot = false;
             }
@@ -83,6 +91,16 @@ public class PlayerWeapon : MonoBehaviour
     public void ResetShootCount()
     {
         shootCount = 0;
+    }
+
+    public void IncreaseOrb()
+    {
+        orb.SetFloat("Size", orb.GetFloat("Size") + 0.1f);
+    }
+
+    public void ResetOrb()
+    {
+        orb.SetFloat("Size", 0);
     }
 
     private IEnumerator HandleKnockback(float duration)
