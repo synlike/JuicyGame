@@ -6,22 +6,34 @@ public class EffectActivator : MonoBehaviour
 {
     public ScreenShake screenShake;
     public ParticleSystem playerShipTrail;
+    public PlayerWeapon playerWeaponScript;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            Debug.Log("hello");
             screenShake.activateScreenshake = !screenShake.activateScreenshake;
-            Debug.Log("Screenshake = " + screenShake.activateScreenshake);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
             if (playerShipTrail.isPlaying)
-                playerShipTrail.Play();
-            else
+            {
                 playerShipTrail.Stop();
+                Debug.Log("Player Trail deactivated");
+            }
+            else
+            {
+                playerShipTrail.Play();
+                Debug.Log("Player Trail activated");
+            }
         }
 
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            playerWeaponScript.activateRecoil = !playerWeaponScript.activateRecoil;
+            Debug.Log("Ship Recoil = " + playerWeaponScript.activateRecoil);
+        }
     }
 }
