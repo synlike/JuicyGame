@@ -58,7 +58,10 @@ public class IAMovement_Script : MonoBehaviour
 
         foreach(GameObject line in LineIA)
         {
-            FirstLineEnnemy.Add(line.transform.GetChild(line.transform.childCount - 1).gameObject);
+            if(line.gameObject.tag != "Light")
+            {
+                FirstLineEnnemy.Add(line.transform.GetChild(line.transform.childCount - 1).gameObject);
+            }
         }
     }
 
