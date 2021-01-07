@@ -15,9 +15,14 @@ public class IAMovement_Script : MonoBehaviour
 
     private Vector3 pos;
 
+    public float speedEnnemy;
+
     public static IAMovement_Script instance;
 
     public bool canShoot;
+    private bool waitMove;
+    private bool LeftRight;
+
     public float timeNextShoot;
 
     [HideInInspector]
@@ -36,7 +41,9 @@ public class IAMovement_Script : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.DOMoveX(5, 20f).SetId("goMove");
+        speedEnnemy = 1f;
+        LeftRight = true;
+
         AddListGameObject();
     }
 
@@ -47,6 +54,12 @@ public class IAMovement_Script : MonoBehaviour
         {
             CheckPosEnnemy();
             ShootEnnemy();
+
+            if (waitMove == false)
+            {
+                if (LeftRight) transform.position += transform.right * Time.deltaTime * speedEnnemy;
+                else transform.position -= transform.right * Time.deltaTime * speedEnnemy;
+            }
         }
     }
 
@@ -92,15 +105,23 @@ public class IAMovement_Script : MonoBehaviour
             if (pos.x < 0.05f) //Côté gauche de la caméra atteint
             {
                 GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Alarm");
-                transform.DOMoveX(5, 20f).SetId("goMove");
-                transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("goDown").OnPlay(() => DOTween.Pause("goMove")).OnComplete(() => { DOTween.Play("goMove"); DOTween.Kill("goDown"); });
+
+                LeftRight = true;
+                
+                transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("GoDown").OnComplete(() => {
+                     DOTween.Kill("GoDown");
+                });
             }
 
             if (0.95f < pos.x) //Côté droit de la caméra atteint
             {
                 GameObject.Find("AudioManager").GetComponent<AudioManager>().Play("Alarm");
-                transform.DOMoveX(-5, 20f).SetId("goMove");
-                transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("goDown").OnPlay(() => DOTween.Pause("goMove")).OnComplete(() => { DOTween.Play("goMove"); DOTween.Kill("goDown"); });
+
+                LeftRight = false;
+                
+                transform.DOMoveY(transform.position.y + (-0.5f), 0.5f).SetId("GoDown").OnComplete(() => {
+                     DOTween.Kill("GoDown");
+                });
             }
 
             if (pos.y < 0.2f) //Bas de la caméra atteint

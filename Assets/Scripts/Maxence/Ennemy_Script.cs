@@ -40,6 +40,11 @@ public class Ennemy_Script : MonoBehaviour
 
     public void DestroyEnnemy()
     {
+        if (IAMovement_Script.instance.IaEnnemy.Count <= 35) 
+        { 
+            IAMovement_Script.instance.speedEnnemy += 0.1f; 
+        }
+
         audioM.Play("EnemyBoom");
 
         audioS.clip = audioRandom.listSoundsEnemyDead[Random.Range(0, audioRandom.listSoundsEnemyDead.Length)];
