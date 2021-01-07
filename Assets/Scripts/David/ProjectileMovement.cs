@@ -40,7 +40,17 @@ public class ProjectileMovement : MonoBehaviour
             }
             Debug.Log("Hitcount : " + hitCount + " | " + hitToDestroy);
             other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
-            if(hitCount == hitToDestroy)
+
+
+            if (playerWeapon.shootCount == playerWeapon.shootsBeforeSpecial)
+            {
+                if (playerWeapon.activateElectricity)
+                {
+                    playerWeapon.playerMeshRenderer.enabled = true;
+                }
+            }
+
+            if (hitCount == hitToDestroy)
             {
                 DestroySelf();
             }

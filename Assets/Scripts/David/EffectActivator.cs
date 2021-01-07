@@ -71,5 +71,11 @@ public class EffectActivator : MonoBehaviour
             IAMovementScript.activateAttractor = !IAMovementScript.activateAttractor;
             Debug.Log("Activate Particle Attractor = " + IAMovementScript.activateAttractor);
         }
+
+        if (Input.GetKeyDown(KeyCode.Keypad8))
+        {
+            playerWeaponScript.activateElectricity = !playerWeaponScript.activateElectricity;
+            Debug.Log("Electricity Combo = " + playerWeaponScript.activateElectricity);
+        }
     }
 }

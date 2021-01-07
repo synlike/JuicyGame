@@ -19,12 +19,12 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
 
-    [SerializeField]
-    private int shootsBeforeSpecial = 5;
+    public int shootsBeforeSpecial = 5;
     [HideInInspector]
     public bool canShoot = true, soundreleased = false;
 
-    private int shootCount = 0;
+    [HideInInspector]
+    public int shootCount = 0;
 
     private Vector3 endPosition;
 
@@ -36,6 +36,11 @@ public class PlayerWeapon : MonoBehaviour
 
     private AudioSource audioS;
 
+    [HideInInspector]
+    public bool activateElectricity;
+
+    public MeshRenderer playerMeshRenderer;
+
     void Start()
     {
         audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -43,6 +48,7 @@ public class PlayerWeapon : MonoBehaviour
         audioRandom = GameObject.Find("AudioManager").GetComponent<audioClipRandom>();
 
         orb.SetFloat("Size", 0);
+        
     }
 
     void Update()
@@ -62,19 +68,26 @@ public class PlayerWeapon : MonoBehaviour
                     StartCoroutine(HandleKnockback(0.1f));
                 }
 
-                if (shootCount <= shootsBeforeSpecial)
+                if (shootCount < shootsBeforeSpecial)
                 {
+                    if(shootCount == 0)
+                    {
+                        playerMeshRenderer.enabled = false;
+                    }
                     //Tir normal
                     audioS.clip = audioRandom.listAllyShots[Random.Range(0, audioRandom.listAllyShots.Length)];
                     audioS.Play();
 
                     GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity) as GameObject;
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
+
                     shootCount++;
                 }
                 else
                 {
                     // Tir Spécial
+                    playerMeshRenderer.enabled = false;
+
                     GameObject projectileInstance = Instantiate(projectileSpecial, shootOrigin.position, Quaternion.identity);
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
                     audioM.Play("MegaShoot");
@@ -91,6 +104,7 @@ public class PlayerWeapon : MonoBehaviour
     public void ResetShootCount()
     {
         shootCount = 0;
+        playerMeshRenderer.enabled = false;
     }
 
     public void IncreaseOrb()
