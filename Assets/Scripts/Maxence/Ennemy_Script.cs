@@ -12,6 +12,9 @@ public class Ennemy_Script : MonoBehaviour
 
     private AudioSource audioS;
 
+    [SerializeField]
+    private GameObject explosion;
+
     void Start()
     {
         screenShake = GameObject.Find("ScreenShake").GetComponent<ScreenShake>();
@@ -42,6 +45,8 @@ public class Ennemy_Script : MonoBehaviour
 
         IAMovement_Script.instance.FirstLineEnnemy.Remove(gameObject);
         IAMovement_Script.instance.IaEnnemy.Remove(gameObject);
+
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
 
