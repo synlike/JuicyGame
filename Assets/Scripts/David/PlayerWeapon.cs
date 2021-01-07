@@ -40,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour
 
                 if (shootCount <= shootsBeforeSpecial)
                 {
-                    GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity);
+                    GameObject projectileInstance = Instantiate(projectile, shootOrigin.position, Quaternion.identity) as GameObject;
                     projectileInstance.GetComponent<ProjectileMovement>().AssignPlayerWeapon(this);
                     shootCount++;
                 }

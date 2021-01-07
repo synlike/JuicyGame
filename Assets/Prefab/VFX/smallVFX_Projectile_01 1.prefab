@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2363341275769210839
+--- !u!1 &245460756150630852
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8015169111554252776}
-  - component: {fileID: 9143310665622630447}
-  - component: {fileID: 2181280173760902509}
-  - component: {fileID: 3387250262867286344}
-  - component: {fileID: 6616421973567895402}
+  - component: {fileID: 5521363426985239035}
+  - component: {fileID: 6721582332461715004}
+  - component: {fileID: 4458913127232752510}
+  - component: {fileID: 911316148176004955}
+  - component: {fileID: 8680138137165121913}
   m_Layer: 0
-  m_Name: VFX_Projectile_01
+  m_Name: smallVFX_Projectile_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8015169111554252776
+--- !u!4 &5521363426985239035
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363341275769210839}
+  m_GameObject: {fileID: 245460756150630852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 9.3}
+  m_LocalPosition: {x: -11.21, y: 1.7395446, z: 9.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8420430369443470642}
-  - {fileID: 8943876803995357279}
+  - {fileID: 6304806181919580961}
+  - {fileID: 6898181534523190860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9143310665622630447
+--- !u!95 &6721582332461715004
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363341275769210839}
+  m_GameObject: {fileID: 245460756150630852}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
@@ -55,39 +55,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2181280173760902509
+--- !u!114 &4458913127232752510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363341275769210839}
+  m_GameObject: {fileID: 245460756150630852}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59b0a32399e87ea4ea0e5ab697ed98d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!65 &3387250262867286344
+--- !u!65 &911316148176004955
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363341275769210839}
+  m_GameObject: {fileID: 245460756150630852}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76871014, y: 0.9486027, z: 1}
-  m_Center: {x: -0.012849331, y: -0.7195711, z: 0}
---- !u!54 &6616421973567895402
+  m_Size: {x: 0.3061285, y: 0.6659136, z: 1}
+  m_Center: {x: -0.012849331, y: -0.57822657, z: 0}
+--- !u!54 &8680138137165121913
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363341275769210839}
+  m_GameObject: {fileID: 245460756150630852}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -97,7 +97,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!1 &4215083866990696769
+--- !u!1 &1863003081091049298
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8943876803995357279}
-  - component: {fileID: 4985265182162837104}
-  - component: {fileID: 2391272723405127821}
+  - component: {fileID: 6898181534523190860}
+  - component: {fileID: 7389126446505418851}
+  - component: {fileID: 183463139683270302}
   m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
@@ -115,27 +115,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8943876803995357279
+--- !u!4 &6898181534523190860
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215083866990696769}
+  m_GameObject: {fileID: 1863003081091049298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8015169111554252776}
+  m_Father: {fileID: 5521363426985239035}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &4985265182162837104
+--- !u!198 &7389126446505418851
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215083866990696769}
+  m_GameObject: {fileID: 1863003081091049298}
   serializedVersion: 6
   lengthInSec: 0.75
   simulationSpeed: 1
@@ -843,7 +843,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.2
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -4787,14 +4787,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &2391272723405127821
+--- !u!199 &183463139683270302
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215083866990696769}
+  m_GameObject: {fileID: 1863003081091049298}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4851,7 +4851,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &6106010515956194774
+--- !u!1 &8581788487110910917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4859,8 +4859,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8420430369443470642}
-  - component: {fileID: 8203412334854288142}
+  - component: {fileID: 6304806181919580961}
+  - component: {fileID: 5943672962998209821}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -4868,28 +4868,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &8420430369443470642
+--- !u!4 &6304806181919580961
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6106010515956194774}
+  m_GameObject: {fileID: 8581788487110910917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8015169111554252776}
+  m_Father: {fileID: 5521363426985239035}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &8203412334854288142
+--- !u!96 &5943672962998209821
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6106010515956194774}
+  m_GameObject: {fileID: 8581788487110910917}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -4931,7 +4931,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.38982677
+        value: 0.10410595
         inSlope: 1.6313766
         outSlope: 1.6313766
         tangentMode: 0
@@ -4939,14 +4939,14 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.18211156
-        value: 0.7551916
+        time: 0.21031743
+        value: 0.395191
         inSlope: 0.941527
-        outSlope: -0.7044746
+        outSlope: -0.34698525
         tangentMode: 1
         weightedMode: 0
         inWeight: 0.40096658
-        outWeight: 0.26879296
+        outWeight: 0.14928493
       - serializedVersion: 3
         time: 1
         value: 0.016949147
