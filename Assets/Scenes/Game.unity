@@ -294,6 +294,7 @@ MonoBehaviour:
   screenShake: {fileID: 810218671}
   playerShipTrail: {fileID: 1994890762}
   playerWeaponScript: {fileID: 1795111942}
+  shipTilt: {fileID: 531249942}
 --- !u!4 &116240881
 Transform:
   m_ObjectHideFlags: 0
@@ -656,6 +657,18 @@ PrefabInstance:
       objectReference: {fileID: 1968182148}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28f74361fc6ed8448b3eb673ee8ccea9, type: 3}
+--- !u!114 &531249942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2763064326312399244, guid: e433b635d2c02094f943e23a653fad83,
+    type: 3}
+  m_PrefabInstance: {fileID: 221498242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e15a735c7f23147b5557baf05ba19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561347139
 GameObject:
   m_ObjectHideFlags: 0
