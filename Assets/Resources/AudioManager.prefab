@@ -134,7 +134,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MegaShoot
     clip: {fileID: 8300000, guid: 73538c34f81b84646bbc569d260659d8, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1
     loop: 0
     CouldCrossfade: 0
@@ -144,9 +144,8 @@ MonoBehaviour:
   MusicLevel: 0
   musicPlayingName: 
   musicVolume: 1
-  Theme1: {fileID: 8300000, guid: 6a835be694957c6468e9c5f30fb42be4, type: 3}
   Theme2: {fileID: 8300000, guid: 24c915cb79924194e87929279a8c4611, type: 3}
-  Theme3: {fileID: 8300000, guid: 4f6bfd2233a10e6489928ac88685cdc8, type: 3}
+  Theme1: {fileID: 8300000, guid: 6a835be694957c6468e9c5f30fb42be4, type: 3}
 --- !u!114 &2039252673433049804
 MonoBehaviour:
   m_ObjectHideFlags: 0
