@@ -13,10 +13,13 @@ public class ProjectileMovement : MonoBehaviour
     private int hitCount = 0;
 
     private AudioManager audioM;
+    
+    private ScreenShake screenShake;
 
     private void Start()
     {
         audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        screenShake = GameObject.Find("ScreenShake").GetComponent<ScreenShake>();
 
         if (gameObject.CompareTag("Special"))
         {
@@ -37,10 +40,15 @@ public class ProjectileMovement : MonoBehaviour
             if(gameObject.tag != "Special")
             {
                 playerWeapon.IncreaseOrb();
+                screenShake.ShakeCamera(0.1f);
+            }
+            else
+            {
+                screenShake.ShakeCamera(0.4f);
             }
             Debug.Log("Hitcount : " + hitCount + " | " + hitToDestroy);
             other.gameObject.GetComponent<Ennemy_Script>().DestroyEnnemy();
-
+            
 
             if (playerWeapon.shootCount == playerWeapon.shootsBeforeSpecial)
             {

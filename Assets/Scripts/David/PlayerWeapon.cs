@@ -87,7 +87,7 @@ public class PlayerWeapon : MonoBehaviour
                 {
                     if (activateRecoil)
                     {
-                        StartCoroutine(HandleKnockback(0.4f));
+                        StartCoroutine(HandleKnockback(0.15f));
                     }
 
                     // Tir Spécial
