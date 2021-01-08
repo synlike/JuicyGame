@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -40,6 +42,8 @@ public class PlayerWeapon : MonoBehaviour
     public bool activateElectricity;
 
     public MeshRenderer playerMeshRenderer;
+
+    public Volume volume;
 
     void Start()
     {
@@ -89,7 +93,6 @@ public class PlayerWeapon : MonoBehaviour
                     {
                         StartCoroutine(HandleKnockback(0.15f));
                     }
-
                     // Tir Spécial
                     playerMeshRenderer.enabled = false;
 

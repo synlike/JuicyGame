@@ -5283,6 +5283,7 @@ MonoBehaviour:
   activateRecoil: 0
   activateElectricity: 0
   playerMeshRenderer: {fileID: 3463914979587567584}
+  volume: {fileID: 0}
 --- !u!1 &5775966862466745167
 GameObject:
   m_ObjectHideFlags: 0

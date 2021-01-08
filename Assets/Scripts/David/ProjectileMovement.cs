@@ -23,7 +23,7 @@ public class ProjectileMovement : MonoBehaviour
 
         if (gameObject.CompareTag("Special"))
         {
-            hitToDestroy = 2;
+            hitToDestroy = 4;
         }
     }
 
