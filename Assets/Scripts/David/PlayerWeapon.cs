@@ -63,14 +63,14 @@ public class PlayerWeapon : MonoBehaviour
         {
             if(canShoot)
             {
-                if(activateRecoil)
-                {
-                    StartCoroutine(HandleKnockback(0.1f));
-                }
-
                 if (shootCount < shootsBeforeSpecial)
                 {
-                    if(shootCount == 0)
+                    if (activateRecoil)
+                    {
+                        StartCoroutine(HandleKnockback(0.1f));
+                    }
+
+                    if (shootCount == 0)
                     {
                         playerMeshRenderer.enabled = false;
                     }
@@ -85,6 +85,11 @@ public class PlayerWeapon : MonoBehaviour
                 }
                 else
                 {
+                    if (activateRecoil)
+                    {
+                        StartCoroutine(HandleKnockback(0.4f));
+                    }
+
                     // Tir Spécial
                     playerMeshRenderer.enabled = false;
 
