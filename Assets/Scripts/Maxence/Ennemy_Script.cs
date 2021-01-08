@@ -40,9 +40,9 @@ public class Ennemy_Script : MonoBehaviour
 
     public void DestroyEnnemy()
     {
-        if (IAMovement_Script.instance.IaEnnemy.Count <= 35) 
+        if (IAMovement_Script.instance.IaEnnemy.Count <= 40) 
         { 
-            IAMovement_Script.instance.speedEnnemy += 0.1f; 
+            IAMovement_Script.instance.speedEnnemy += 0.05f; 
         }
 
         audioM.Play("EnemyBoom");
